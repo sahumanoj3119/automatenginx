@@ -24,8 +24,8 @@ instance_groups:
   jobs:
   - name: haproxy
     release: haproxy
-  - name: keepalived
-    release: haproxy
+#  - name: keepalived
+#    release: haproxy
 #    properties:
 #      keepalived:
 #        vip: 10.100.155.175
