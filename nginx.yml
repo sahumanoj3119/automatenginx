@@ -30,8 +30,8 @@ instance_groups:
      ha_proxy:
       backend_port: 80
       backend_servers: ((haproxy-backend-servers))
-#      keepalived:
-#        vip: 10.100.155.175
+      keepalived:
+        vip: 10.100.155.120
 - name: nginx
   instances: 3
   azs: [ z1 ]
