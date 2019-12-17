@@ -1,0 +1,73 @@
+resource_types:
+- name: bosh-deployment
+  type: docker-image
+  source:
+    repository: cloudfoundry/bosh-deployment-resource
+
+resources:
+- name: Deployment-nginx
+  type: git
+  source:
+    uri: https://github.com/BOSHRocks/part13-deployment-nginx.git
+- name: boshrelease-nginx
+  type: bosh-io-release
+  source:
+    repository: cloudfoundry-community/nginx-release
+- name: boshrelease-haproxy
+  type: bosh-io-release
+  source:
+    repository: cloudfoundry-community/haproxy-boshrelease
+- name: stemcell
+  type: bosh-io-stemcell
+  source:
+    name: bosh-vsphere-esxi-ubuntu-trusty-go_agent
+    version_family: latest
+
+- name: deploy-nginx
+  type: bosh-deployment
+  source:
+    deployment: nginx
+    target: 10.100.155.95
+    client: admin
+    client_secret: x24xh20vpvtscvhxad15
+    ca_cert: |
+      -----BEGIN CERTIFICATE-----
+      MIIDFDCCAfygAwIBAgIRAIm3WpscGAza1gv+JKzysVcwDQYJKoZIhvcNAQELBQAw
+      MzEMMAoGA1UEBhMDVVNBMRYwFAYDVQQKEw1DbG91ZCBGb3VuZHJ5MQswCQYDVQQD
+      EwJjYTAeFw0xODA1MTMxMzU3MTVaFw0xOTA1MTMxMzU3MTVaMDMxDDAKBgNVBAYT
+      A1VTQTEWMBQGA1UEChMNQ2xvdWQgRm91bmRyeTELMAkGA1UEAxMCY2EwggEiMA0G
+      CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC/PNBDyHelU3IPPldVXwD6HSWLnF2V
+      yPhA64D554cL544GHwX30hr4OSsFWiP7nSDE2RActPHFpzQLLuDBVqUl4GW/7QBp
+      XXAA/kqQDJ1he0JP8cNRKbXiVV6T+mNE7Fd/du404C6fcSNtO92pNxSs406c2Qxd
+      +OOPux10BLi+G/fuAex6xNAxLIzWNXttpL+BLRxCjrZPtdiXqg8RHA49K/HD/Onv
+      RL59RjrqANnmPgfbJ3XkXIYw7WsJMMjh8dv+2n/vXCXJyHEYGLCgnHTdldUwr1QQ
+      QqVOZpreJ/AfVWLKDzzL6UtistsEJ4BcwWUcJgCK1V6t+evhM/LzN30hAgMBAAGj
+      IzAhMA4GA1UdDwEB/wQEAwIBBjAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEB
+      CwUAA4IBAQBsv2G9WljEtjW+50trVJbnXvavQjjX3baNvBC1EzTNm3t+XsczH4fr
+      GttQOwIm6EUYe9C2fp8QVpSbhrJAPGi2+fO1ZvP52mU454MpVEzICDY387w5Tetk
+      nBIW2YKI2Hrzx5fhAR9sfPVpD/1DKc3modQbH9Xw6n+iyOqu0vMKGH5StsSEnQE+
+      Df9bfkiCu+1AFAhQyyCfGmEmb+rsKfDFMKM9SnWwt1DT2XV/HTHoYaLhQkE8NmIP
+      q2fPix41IeSGXfLZiSu6mMcp532TVlP+mMgLRpKme9/gFZprD3BooqtD+gXcygnE
+      K/zr7rUsNJNrQLXNBwJ20yIZfrB/p0bt
+      -----END CERTIFICATE-----
+
+jobs:
+- name: deploy-nginx
+  plan:
+  - aggregate:
+    - get: boshrelease-haproxy
+      trigger: true
+    - get: Deployment-nginx
+      trigger: true
+    - get: stemcell
+      trigger: true
+    - get: boshrelease-nginx
+      trigger: true
+  - put: deploy-nginx
+    params:
+      manifest: Deployment-nginx/nginx.yml
+      stemcells:
+      - stemcell/stemcell.tgz
+      releases:
+      - boshrelease-nginx/release.tgz
+      - boshrelease-haproxy/release.tgz
