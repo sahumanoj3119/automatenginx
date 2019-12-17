@@ -29,7 +29,7 @@ resources:
     deployment: nginx
     target: 10.100.155.80
     client: admin
-    client_secret: x24xh20vpvtscvhxad15
+    client_secret: xohnbqmirqijx8vrstz6
     ca_cert: |
       -----BEGIN CERTIFICATE-----
       MIIDFDCCAfygAwIBAgIRAIm3WpscGAza1gv+JKzysVcwDQYJKoZIhvcNAQELBQAw
