@@ -15,15 +15,15 @@ stemcells:
   version: latest
 
 instance_groups:
-- name: haproxy
-  azs: [z1]
-  instances: 2
-  vm_type: default
-  stemcell: ubuntu
-  networks: [{name: sfo}]
-  jobs:
-  - name: haproxy
-    release: haproxy
+#- name: haproxy
+#  azs: [z1]
+#  instances: 2
+#  vm_type: default
+#  stemcell: ubuntu
+#  networks: [{name: sfo}]
+#  jobs:
+#  - name: haproxy
+#    release: haproxy
 #  - name: keepalived
 #    release: haproxy
 #    properties:
