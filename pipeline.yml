@@ -8,7 +8,7 @@ resources:
 - name: Deployment-nginx
   type: git
   source:
-    uri: https://github.com/BOSHRocks/part13-deployment-nginx.git
+    uri: https://github.com/sahumanoj3119/automatenginx.git
 - name: boshrelease-nginx
   type: bosh-io-release
   source:
@@ -27,7 +27,7 @@ resources:
   type: bosh-deployment
   source:
     deployment: nginx
-    target: 10.100.155.95
+    target: 10.100.155.80
     client: admin
     client_secret: x24xh20vpvtscvhxad15
     ca_cert: |
