@@ -26,9 +26,9 @@ instance_groups:
     release: haproxy
   - name: keepalived
     release: haproxy
-    properties:
-      keepalived:
-        vip: 10.100.155.175
+#    properties:
+#      keepalived:
+#        vip: 10.100.155.175
 - name: nginx
   instances: 3
   azs: [ z1 ]
