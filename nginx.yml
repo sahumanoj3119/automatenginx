@@ -21,14 +21,14 @@ instance_groups:
   vm_type: default
   stemcell: ubuntu
   networks: [{name: sfo}]
-jobs:
-- name: haproxy
-  release: haproxy
-- name: keepalived
-  release: haproxy
-  properties:
-    keepalived:
-      vip: 10.100.155.120
+  jobs:
+  - name: haproxy
+    release: haproxy
+  - name: keepalived
+    release: haproxy
+    properties:
+      keepalived:
+        vip: 10.100.155.120
 - name: nginx
   instances: 3
   azs: [ z1 ]
