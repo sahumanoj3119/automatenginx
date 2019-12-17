@@ -17,7 +17,7 @@ stemcells:
 instance_groups:
 - name: haproxy
   azs: [z1]
-  instances: 2
+  instances: 1
   vm_type: default
   stemcell: ubuntu
   networks: [{name: sfo}]
@@ -27,8 +27,11 @@ instance_groups:
   - name: keepalived
     release: haproxy
     properties:
-      keepalived:
-        vip: 10.100.155.175
+     ha_proxy:
+      backend_port: 80
+      backend_servers: ((haproxy-backend-servers))
+#      keepalived:
+#        vip: 10.100.155.175
 - name: nginx
   instances: 3
   azs: [ z1 ]
