@@ -16,7 +16,7 @@ resources:
 - name: boshrelease-haproxy
   type: bosh-io-release
   source:
-    repository: cloudfoundry-community/haproxy-boshrelease
+    repository: cloudfoundry-community/haproxy-boshrelease?v=8.7.0
 - name: stemcell
   type: bosh-io-stemcell
   source:
