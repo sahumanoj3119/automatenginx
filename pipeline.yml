@@ -20,7 +20,7 @@ resources:
 - name: stemcell
   type: bosh-io-stemcell
   source:
-    name: bosh-vsphere-esxi-ubuntu-trusty-go_agent
+    name: bosh-vsphere-esxi-ubuntu-xenial-go_agent
     version_family: latest
 
 - name: deploy-nginx
@@ -63,13 +63,13 @@ jobs:
   plan:
   - aggregate:
     - get: boshrelease-haproxy
-      trigger: false
+      trigger: true
     - get: Deployment-nginx
-      trigger: false
+      trigger: true
     - get: stemcell
-      trigger: false
+      trigger: true
     - get: boshrelease-nginx
-      trigger: false
+      trigger: true
   - put: deploy-nginx
     params:
       manifest: Deployment-nginx/nginx.yml
