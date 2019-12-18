@@ -8,10 +8,14 @@ releases:
   version: "8.7.0"
   url: "https://bosh.io/d/github.com/cloudfoundry-community/haproxy-boshrelease?v=8.7.0"
   sha1: "44b4426d982010b486c3c5b199e03666fb293a66"
+#- name: "haproxy"
+#  version: "9.8.0"
+#  url: "https://bosh.io/d/github.com/cloudfoundry-community/haproxy-boshrelease?v=9.8.0"
+#  sha1: "7259082fafa62f98ba3396ccfdfd8fe195ce8480"
 
 stemcells:
 - alias: ubuntu
-  os: ubuntu-trusty
+  os: ubuntu-xenial
   version: latest
 
 instance_groups:
@@ -27,10 +31,11 @@ instance_groups:
   - name: keepalived
     release: haproxy
     properties:
+    #  ha_proxy:
       keepalived:
-        vip: 10.100.155.175
+        vip: 10.100.155.176
 - name: nginx
-  instances: 2
+  instances: 3
   azs: [ z1 ]
   vm_type: default
   persistent_disk_type: default
