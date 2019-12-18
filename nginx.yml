@@ -29,7 +29,7 @@ instance_groups:
     properties:
     #  ha_proxy:
       keepalived:
-        vip: 10.100.155.120
+        vip: 10.100.155.176
 - name: nginx
   instances: 3
   azs: [ z1 ]
