@@ -1,0 +1,5 @@
+$PATH /var/vcap/packages/ttar/bin:/var/vcap/packages/keepalived/sbin:/var/vcap/packages/keepalived/bin:/var/vcap/packages/haproxy/bin:/bin:/usr/bin:/sbin:/usr/sbin
+Starting HAProxy: Wed Dec 18 07:03:17 UTC 2019: Starting HAProxy
+Wed Dec 18 07:03:17 UTC 2019: Finished starting HAProxy
+SUCCESS
+haproxy.

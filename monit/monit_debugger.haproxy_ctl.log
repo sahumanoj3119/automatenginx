@@ -1,0 +1,16 @@
+MONIT-DEBUG date
+Wed Dec 18 07:03:16 UTC 2019
+MONIT-DEBUG env
+MONIT_PROCESS_PID=0
+MONIT_HOST=localhost
+MONIT_PROCESS_CPU_PERCENT=0
+MONIT_DATE=Wed, 18 Dec 2019 07:03:16 +0000
+MONIT_PROCESS_CHILDREN=0
+MONIT_DESCRIPTION=Started
+PATH=/bin:/usr/bin:/sbin:/usr/sbin
+MONIT_PROCESS_MEMORY=0
+MONIT_SERVICE=haproxy
+PWD=/etc/sv/monit
+MONIT_EVENT=Started
+MONIT-DEBUG haproxy_ctl /var/vcap/jobs/haproxy/bin/haproxy_ctl start
+MONIT-DEBUG exit code 0
