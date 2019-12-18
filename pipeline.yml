@@ -63,13 +63,13 @@ jobs:
   plan:
   - aggregate:
     - get: boshrelease-haproxy
-      trigger: true
+      trigger: false
     - get: Deployment-nginx
-      trigger: true
+      trigger: false
     - get: stemcell
-      trigger: true
+      trigger: false
     - get: boshrelease-nginx
-      trigger: true
+      trigger: false
   - put: deploy-nginx
     params:
       manifest: Deployment-nginx/nginx.yml
