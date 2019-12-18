@@ -11,7 +11,7 @@ releases:
 
 stemcells:
 - alias: ubuntu
-  os: ubuntu-xenial
+  os: ubuntu-trusty
   version: latest
 
 instance_groups:
