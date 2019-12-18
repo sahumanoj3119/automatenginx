@@ -5,9 +5,13 @@ releases:
 - name: nginx
   version: latest
 - name: "haproxy"
-  version: "9.8.0"
-  url: "https://bosh.io/d/github.com/cloudfoundry-community/haproxy-boshrelease?v=9.8.0"
-  sha1: "7259082fafa62f98ba3396ccfdfd8fe195ce8480"
+  version: "8.7.0"
+  url: "https://bosh.io/d/github.com/cloudfoundry-community/haproxy-boshrelease?v=8.7.0"
+  sha1: "44b4426d982010b486c3c5b199e03666fb293a66"
+#- name: "haproxy"
+#  version: "9.8.0"
+#  url: "https://bosh.io/d/github.com/cloudfoundry-community/haproxy-boshrelease?v=9.8.0"
+#  sha1: "7259082fafa62f98ba3396ccfdfd8fe195ce8480"
 
 stemcells:
 - alias: ubuntu
