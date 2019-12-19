@@ -77,5 +77,5 @@ jobs:
       stemcells:
       - stemcell/stemcell.tgz
       releases:
-      - boshrelease-nginx/release.tgz
-      - boshrelease-haproxy/release.tgz
+      - boshrelease-nginx/*.tgz
+      - boshrelease-haproxy/*.tgz
