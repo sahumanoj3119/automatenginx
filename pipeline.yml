@@ -9,6 +9,10 @@ resources:
   type: git
   source:
     uri: https://github.com/sahumanoj3119/automatenginx.git
+    branch: master
+    private_key: |
+       ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC4pzF1/uMcV3VKfAjAaQwKvfLJr7fHHhR8iwD9FsVsOW2PEQhr6eRpDz8W/s2xzcigvJSPkrjLuTVP1XqlWQUv8/MjSQg8XkBBaUNEhaURyBCYxJ6/H5Qi2wTJoaNDhTcEXsAxM5Gm+Ae4cJolmPrNrVVPjCuGsW3UuasB8dNznGjFC7Vv2xjRPNRCZBwqvlFQ6RVb3oKPS7kqF/eeRYQrqIN8lh0BKk2KE2LxVwoe5d0Wz3zIfavPjz2Q+qe8s6tCla+sBL11zACHN4A9dK2R082dnWEo4vmqZJSuTaaZGzQsJcpCPl+rujL/nOCcb/RrdjAT6JIztg7vqwINW2UT sysops@bosh-test-01
+
 - name: boshrelease-nginx
   type: bosh-io-release
   source:
